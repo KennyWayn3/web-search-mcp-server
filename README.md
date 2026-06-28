@@ -1,4 +1,4 @@
-# Web Search MCP Server - MCP Server
+# CrewAI Web Search MCP
 
 MCP server providing web search and content extraction for AI agents
 
@@ -6,19 +6,19 @@ MCP server providing web search and content extraction for AI agents
 
 ### pip
 ```bash
-pip install web-search-mcp-server
+pip install crewai-web-search-mcp
 ```
 
 ### uvx (recommended)
 ```bash
-uvx web-search-mcp-server
+uvx crewai-web-search-mcp
 ```
 
 ## Usage
 
 Add to your Claude Desktop config:
 ```json
-{"mcpServers": {"web-search-mcp-server": {"command": "uvx", "args": ["web-search-mcp-server"]}}}
+{"mcpServers": {"crewai-web-search-mcp": {"command": "uvx", "args": ["crewai-web-search-mcp"]}}}
 ```
 
 ## Available Tools

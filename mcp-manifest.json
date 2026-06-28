@@ -1,5 +1,5 @@
 {
-  "name": "Web Search MCP Server",
+  "name": "CrewAI Web Search MCP",
   "description": "MCP server providing web search and content extraction for AI agents",
   "tools": [
     {
@@ -25,11 +25,12 @@
       ]
     }
   ],
-  "install_command": "uvx web-search-mcp-server",
-  "pip_install": "web-search-mcp-server",
+  "install_command": "uvx crewai-web-search-mcp",
+  "pip_install": "crewai-web-search-mcp",
   "keywords": [
     "mcp",
-    "web-search"
+    "web-search",
+    "crewai"
   ],
   "price_usd": 49
 }

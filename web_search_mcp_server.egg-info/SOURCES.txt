@@ -1,8 +1,0 @@
-README.md
-pyproject.toml
-web_search_mcp_server.egg-info/PKG-INFO
-web_search_mcp_server.egg-info/SOURCES.txt
-web_search_mcp_server.egg-info/dependency_links.txt
-web_search_mcp_server.egg-info/entry_points.txt
-web_search_mcp_server.egg-info/requires.txt
-web_search_mcp_server.egg-info/top_level.txt

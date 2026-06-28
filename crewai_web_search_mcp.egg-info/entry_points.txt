@@ -1,0 +1,2 @@
+[console_scripts]
+crewai-web-search-mcp = crewai_web_search_mcp.server:app.run
