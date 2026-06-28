@@ -1,0 +1,13 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "mcp-billing"
+version = "1.0.0"
+description = "Pay-per-use billing client for MCP servers"
+license = "MIT"
+requires-python = ">=3.10"
+
+[project.urls]
+Homepage = "https://github.com/KennyWayn3/crewai-mcp-servers"
