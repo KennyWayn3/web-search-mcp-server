@@ -34,8 +34,18 @@ def extract_content(url: str) -> str:
     return json.dumps({"tool": "extract_content", "params": {"url": url}, "credits_remaining": remaining})
 
 
-# ASGI app for Render / uvicorn
+# Health check endpoint for Render
+from starlette.responses import JSONResponse
+from starlette.routing import Route
+
+
+async def health_check(request):
+    return JSONResponse({"status": "ok"})
+
+
+# ASGI app for Render / uvicorn with health check route
 starlette_app = fastmcp.streamable_http_app()
+starlette_app.router.routes.insert(0, Route("/health", endpoint=health_check, methods=["GET"]))
 
 if __name__ == "__main__":
     fastmcp.run(transport="streamable-http")
