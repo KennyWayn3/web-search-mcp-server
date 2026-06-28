@@ -1,0 +1,35 @@
+{
+  "name": "Web Search MCP Server",
+  "description": "MCP server providing web search and content extraction for AI agents",
+  "tools": [
+    {
+      "name": "web_search",
+      "description": "Search the web",
+      "parameters": [
+        {
+          "name": "query",
+          "type": "str",
+          "description": "Query"
+        }
+      ]
+    },
+    {
+      "name": "extract_content",
+      "description": "Extract content from URL",
+      "parameters": [
+        {
+          "name": "url",
+          "type": "str",
+          "description": "URL"
+        }
+      ]
+    }
+  ],
+  "install_command": "uvx web-search-mcp-server",
+  "pip_install": "web-search-mcp-server",
+  "keywords": [
+    "mcp",
+    "web-search"
+  ],
+  "price_usd": 49
+}
