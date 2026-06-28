@@ -4,6 +4,17 @@ Web Search MCP Server - Streamable HTTP MCP Server
 import json, os
 from mcp.server import FastMCP
 from mcp_billing import billing
+from starlette.middleware.base import BaseHTTPMiddleware
+from starlette.responses import JSONResponse
+
+class AgenticMarketMiddleware(BaseHTTPMiddleware):
+    async def dispatch(self, request, call_next):
+        secret = os.getenv("AGENTICMARKET_SECRET")
+        if secret:
+            header_val = request.headers.get("x-agenticmarket-secret")
+            if header_val != secret:
+                return JSONResponse({"error": "Unauthorized"}, status_code=401)
+        return await call_next(request)
 
 fastmcp = FastMCP(
     "Web Search MCP Server",
@@ -35,7 +46,6 @@ def extract_content(url: str) -> str:
 
 
 # Health check endpoint for Render
-from starlette.responses import JSONResponse
 from starlette.routing import Route
 
 
@@ -43,8 +53,9 @@ async def health_check(request):
     return JSONResponse({"status": "ok"})
 
 
-# ASGI app for Render / uvicorn with health check route
+# ASGI app for Render / uvicorn with health check + AgenticMarket middleware
 starlette_app = fastmcp.streamable_http_app()
+starlette_app.add_middleware(AgenticMarketMiddleware)
 starlette_app.router.routes.insert(0, Route("/health", endpoint=health_check, methods=["GET"]))
 
 if __name__ == "__main__":
