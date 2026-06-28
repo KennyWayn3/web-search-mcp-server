@@ -1,31 +1,49 @@
 # CrewAI Web Search MCP
 
-MCP server providing web search and content extraction for AI agents
+MCP server providing web search and content extraction for AI agents.
 
-## Installation
+## Tools
 
-### pip
+### `web_search`
+Search the web using a query string.
+- **`query`** (string, required): Search query
+
+### `extract_content`
+Extract text content from a URL.
+- **`url`** (string, required): URL to extract content from
+
+## Quick Start (local)
+
 ```bash
-pip install crewai-web-search-mcp
+pip install -r requirements.txt
+export MCP_BILLING_API=https://mcp-billing-api.onrender.com
+uvicorn server:starlette_app --host 0.0.0.0 --port 8000
 ```
 
-### uvx (recommended)
-```bash
-uvx crewai-web-search-mcp
-```
+## Usage with Claude Desktop / MCP clients
 
-## Usage
-
-Add to your Claude Desktop config:
 ```json
-{"mcpServers": {"crewai-web-search-mcp": {"command": "uvx", "args": ["crewai-web-search-mcp"]}}}
+{
+  "mcpServers": {
+    "crewai-web-search-mcp": {
+      "url": "https://mcp-web-search.onrender.com/"
+    }
+  }
+}
 ```
 
-## Available Tools
-- **web_search**: Search the web
-- **extract_content**: Extract content from URL
+## Deployed endpoint
+
+`https://mcp-web-search.onrender.com/` — Streamable HTTP transport at root path. Health check at `/health`.
+
+## Environment Variables
+
+| Variable | Required | Description |
+|---|---|---|
+| `MCP_BILLING_API` | Yes | Billing API endpoint |
+| `MCP_LICENSE_KEY` | Yes | License key for billing |
+| `AGENTICMARKET_SECRET` | No | Secret for AgenticMarket authentication |
 
 ## License
-MIT
 
-[![PyPI](https://img.shields.io/pypi/v/crewai-web-search-mcp)](https://pypi.org/project/crewai-web-search-mcp/) [![GitHub](https://img.shields.io/github/stars/KennyWayn3/web-search-mcp-server)](https://github.com/KennyWayn3/web-search-mcp-server)
+MIT

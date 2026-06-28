@@ -20,6 +20,8 @@ fastmcp = FastMCP(
     "Web Search MCP Server",
     host="0.0.0.0",
     port=int(os.getenv("PORT", "8000")),
+    streamable_http_path="/",
+    json_response=True,
 )
 
 
