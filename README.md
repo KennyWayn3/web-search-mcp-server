@@ -47,3 +47,5 @@ uvicorn server:starlette_app --host 0.0.0.0 --port 8000
 ## License
 
 MIT
+
+[![PyPI](https://img.shields.io/pypi/v/crewai-web-search-mcp)](https://pypi.org/project/crewai-web-search-mcp/) [![GitHub](https://img.shields.io/github/stars/KennyWayn3/web-search-mcp-server)](https://github.com/KennyWayn3/web-search-mcp-server)
